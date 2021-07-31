@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  orders-db:
+    build: ./scripts
+  orders-service:
+    build:
+      context: .
+      dockerfile: src/API/Dockerfile
+    ports:
+      - 9090:80
+    depends_on:
+      - orders-db
